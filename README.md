@@ -29,3 +29,17 @@ A simple and responsive web application that starts with a login interface and r
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/smart-login-dashboard.git
+
+🧾 License
+This project is open-source and available under the MIT License.
+
+🙌 Acknowledgements
+Google Developers
+
+OpenStreetMap / Nominatim
+
+Open-Meteo
+
+GNews.io
+
+
