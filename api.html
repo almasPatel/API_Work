@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #155dc0;
+    }
+    .google-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #google-signin {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="google-btn">
+      <p>or</p>
+      <div id="google-signin"></div>
+    </div>
+  </div>
+
+  <script>
+    // Form login handler
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Fake login logic (replace with real one)
+      if (username === "admin" && password === "admin") {
+        alert("Login successful!");
+      } else {
+        alert("Invalid credentials!");
+      }
+    });
+
+    // Google Sign-In
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "45987564861-5ivt4gklvqq1aq9fci09no61gvth0pkd.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("google-signin"),
+        { theme: "outline", size: "large" }
+      );
+    };
+	function handleCredentialResponse(response) {
+  console.log("Google ID Token:", response.credential);
+  alert("Google Login Successful.");
+  window.location.href = "home.html";
+}
+
+  </script>
+</body>
+</html>
